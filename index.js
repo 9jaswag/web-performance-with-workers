@@ -1,14 +1,14 @@
-const fibonacci = (num) => {
-  if (num <= 1) return 1;
-
-  return fibonacci(num - 1) + fibonacci(num - 2);
-}
+let worker = new Worker("./worker.js");
 
 const calculate = () => {
   const num = 40;
-  console.log(fibonacci(num));
-  return fibonacci(num);
-}
+  worker.postMessage(num);
+};
+
+worker.onmessage = event => {
+  const num = event.data;
+  console.log(num);
+};
 
 const move = () => {
   for (let i = 0; i < 3; i++) {
