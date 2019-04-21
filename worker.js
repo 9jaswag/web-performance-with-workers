@@ -9,4 +9,5 @@ self.onmessage = event => {
   const result = fibonacci(num);
 
   self.postMessage(result);
+  self.close();
 };
