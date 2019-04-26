@@ -21,9 +21,8 @@ const move = () => {
 const animate = (shuttle) => {
   let position = 0;
 
-  let id = setInterval(() => {
+  setInterval(() => {
     if (position > window.innerWidth / 1.2) {
-      // clearInterval(id);
       position = 0;
     } else {
       position++;
