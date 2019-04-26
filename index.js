@@ -14,18 +14,20 @@ const move = () => {
   for (let i = 0; i < 3; i++) {
     const shuttleID = `shuttle${i + 1}`;
     let shuttle = document.getElementById(shuttleID);
-
-    let position = 0;
-    let id = setInterval(animate, 5);
-
-    function animate() {
-      if (position > window.innerWidth / 1.2) {
-        // clearInterval(id);
-        position = 0;
-      } else {
-        position++;
-        shuttle.style.left = position + "px";
-      }
-    }
+    animate(shuttle);
   }
 };
+
+const animate = (shuttle) => {
+  let position = 0;
+
+  let id = setInterval(() => {
+    if (position > window.innerWidth / 1.2) {
+      // clearInterval(id);
+      position = 0;
+    } else {
+      position++;
+      shuttle.style.left = position + "px";
+    }
+  }, 5);
+}
